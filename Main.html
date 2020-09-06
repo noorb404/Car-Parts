@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="font/flaticon.css">
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CarFx</title>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+
+    <script src="CatalogScript.js"></script>
+
+</head>
+<body style="height: 3000px;">
+    <div style="float: left; width:120px; margin-top: 1px; height: 80px; background-color: rgb(255, 255, 226);"></div>
+    <hr style="background-color: goldenrod; width: 1600px;  margin-top: 10px;">
+    <div class="row" style="background-color:rgb(255, 255, 226); width: 100%; margin-top: -15px;  margin-left: 120px;">
+        <div class="col">
+
+            <h3 style="  font-family:Calibri; margin-top: 18px; margin-left: 195px; margin-right: -195px; float: left; text-align: right; font-size: large; font-weight: bold;  color: rgb(36, 36, 36);">תמיכה ושירות</h3>
+            <h3 style="  font-family:Calibri; margin-top: 39px;  float: left; text-align: right; font-size: medium;  color:  rgb(82, 82, 82);">זמינים לראשותכם במייל או בטלפון</h3>
+            <div class="icons"><span class="flaticon-24-hours" style=" color: black; "></span></div>
+        </div>
+
+        <div class="col">
+
+
+            <h3 style="  font-family:Calibri; margin-top: 18px; margin-left: 100px; margin-right: -120px;  float: left; text-align: right; font-size: large; font-weight: bold;  color: rgb(36, 36, 36);">החזר כספי מלא</h3>
+            <h3 style="  font-family:Calibri; margin-top: 39px; float: left; text-align: right; font-size: medium;  color:  rgb(82, 82, 82);">אפשרות לבטל עסקה</h3>
+            <div class="icons"><span class="flaticon-save-money" style=" color: black; "></span></div>
+        </div>
+
+        <div class="col" style="width: 300px;">
+            <h3 style="  font-family: Calibri; margin-top: 18px; float: left; text-align: right; font-size: large; font-weight: bold;  color: rgb(36, 36, 36);">משלוחים חינם</h3>
+            <h3 style="  font-family: Calibri;  margin-top:39px ; margin-left: -112px; float: left; text-align: right; font-size: medium;  color: rgb(82, 82, 82);">משלוחים לכל הארץ</h3>
+            <div class="icons"><span class="flaticon-delivery-truck" style="color: black; "></span></div>
+        </div>
+    </div>
+    <hr style="background-color: goldenrod; width: 1600px;  margin-top: -0.3px;">
+
+
+
+    <div id="subContent2">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="pics/pic10.png">
+                </div>
+                <div class="carousel-item">
+                    <img src="pics/pic9.png">
+                </div>
+                <div class="carousel-item">
+                    <img src="pics/pic11.png">
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div><br><br><br>
+    <div class="container">
+        <h1 style="text-align: center;">מבצעים לוהטים</h1><hr style="border-color: rgb(252, 222, 146);">
+        <div class="items_div">
+
+
+        </div>
+
+    </div>
+    <button   style="border: 0; background: 0; margin-left: 650px; font-size: x-large;  text-align: center; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(83, 83, 83);" onclick="openPage2('allParts')">הצגת כל המוצרים</button>
+    <br><br><br><br>
+    <iframe style="width: 100%; height: 100%; border: none;" id="mainframe2"></iframe>
+    <div class="modal" id="AddToCartModal">
+        <div class="modal-dialog" id="AddToCartModalContent">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <br>
+                    <h3 class="modal_headers">Select quantity</h3>
+                    <br>
+                    <select class="form-control user_info_inputs" id="qtySelect">
+                    </select>
+                    <br>
+                    <div style="margin: auto; width: 120px">
+                        <button type="button" class="btn btn-primary" style="background: goldenrod; border: 0;" id="addToCartBtn" onclick="addToCart()">add to cart</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="toast" data-delay="1500" id="msgToast">
+        <div class="toast-body" id="msgContent">
+            Some text inside the toast body
+        </div>
+    </div>
+
+    <div class="modal" id="partFitsCarsModal">
+        <div class="modal-dialog" id="partFitsCarsModalContent">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal_headers">this part fits</h3>
+                    <br>
+
+                    <div style="overflow:auto; height:200px; ">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>year</th>
+                                    <th>make</th>
+                                    <th>model</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="fitCarsBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+</div>
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDzP5e99r3HlK8fi6C2VXUWRHdL_TQ1p-M",
+            authDomain: "car-parts-project.firebaseapp.com",
+            databaseURL: "https://car-parts-project.firebaseio.com",
+            projectId: "car-parts-project",
+            storageBucket: "car-parts-project.appspot.com",
+            messagingSenderId: "563519871009",
+            appId: "1:563519871009:web:3ae23a07c24708cf55ab60",
+            measurementId: "G-2C39X9F1RR"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="Jscripts.js"></script>
+    <script src="Main.js"></script>
+    <script src="shopCart.js"></script>
+
+</body>
+</html>

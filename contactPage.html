@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Contact Us</title>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+
+
+</head>
+<body  >
+
+<div class="bg-image"></div>
+  
+
+<div>
+    <h1 style=" position: absolute;transform: translate(-50%, -50%);left:50%;top:6%; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 50px; font-weight: bold; text-align: center; color: rgb(255, 255, 200);">ליצור קשר</h1>
+    <h1 style=" position: absolute;transform: translate(-50%, -50%);left:50%;top:15%; margin-bottom: -55px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large; font-weight: bold; text-align: center; color: rgb(255, 255, 200);"> נא להשאיר פרטים ונחזור אליכם או להתקשר למספרים הנ"ל</h1>
+    <div class="form-contr" style="height: 450px; margin-top: -20px; position: absolute;transform: translate(-50%, -50%);top:60%;">
+        <br><br>
+        <input id="nameI" type="text" class="form2" placeholder="Enter Full Name" style="width: 80%; "><br><br>
+        <input id="emailI" type="text" class="form2" placeholder="Enter Email Address" style="width: 80%;"><br><br>
+        <textarea type="text" id="content" class="form2" rows="3" placeholder="Message" style="margin-top: 70px; width: 80%; height: 170px;"></textarea>
+        <button type="button" class="btn btn-primary" id="ContactBtn" onclick="showMessage($('#nameI').val());" style="left: 50%; transform: translate(50%,50%); margin-left: 10px;  margin-top:-150px;">Send</button>
+
+
+    </div>
+    <p id="message1" style="text-align:center;color:grey;border:0;margin:0;font-size:25px;"></p>
+    <p id="message2" style="text-align:center;color:grey;border:0;margin:0;font-size:20px;"></p>
+</div>
+    <script>
+        function showMessage(name) {
+            var x = document.getElementById('content').value;
+            var y = document.getElementById('emailI').value;
+            var z = document.getElementById('nameI').value;
+            if (x == "" || y == "" || z == "") {
+                document.getElementById("message1").innerHTML = "Somthing wrong.";
+                document.getElementById("message2").innerHTML = "please fill all the fields.";
+            } else {
+                document.getElementById("message1").innerHTML = "Your message was sent.";
+                document.getElementById("message2").innerHTML = "Thank you " + name + " for your ask, we will request soon .";
+                document.getElementById('ContactBtn').disabled = 'disabled';
+            }
+        }
+    </script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDzP5e99r3HlK8fi6C2VXUWRHdL_TQ1p-M",
+    authDomain: "car-parts-project.firebaseapp.com",
+    databaseURL: "https://car-parts-project.firebaseio.com",
+    projectId: "car-parts-project",
+    storageBucket: "car-parts-project.appspot.com",
+    messagingSenderId: "563519871009",
+    appId: "1:563519871009:web:3ae23a07c24708cf55ab60",
+    measurementId: "G-2C39X9F1RR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="Jscripts.js"></script>
+    </body>
+    </html>
+

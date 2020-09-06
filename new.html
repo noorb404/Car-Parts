@@ -1,0 +1,674 @@
+/************************************************************************************************************/
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/search-car.css">
+    <title>Rents</title>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+    <script src="/public/js/search-car.js"></script>
+
+</head>
+
+
+<body>
+    <!--Start Upper Bar-->
+    <div class="upper-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <i class="fa fa-envelope-o"></i> Rents@support.com
+                </div>
+                <div class="col-md">
+                    Lets Work Together <span class="Get-Quote"> Get Quote </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Upper Bar-->
+
+
+    <!--Start Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand"><span>R</span><span>ents</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                עוד
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" target="_self" href="#">מי אנחנו </a>
+                            <a class="dropdown-item" target="_self" href="/contact-us">ליצור קשר <i class="fa fa-phone fa-1x" ></i></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                התחברות <i class="fa fa-sign-in fa-1x"></i>
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" target="_self" href="/login">התחבר <i class="fa fa-sign-in fa-1x"></i></a>
+                            <a class="dropdown-item" target="_self" href="/register">להירשם <i class="fa fa-registered fa-1x"></i></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                מכירה וקנייה  <i class="fa fa-car fa-1x"></i>
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" target="_self" href="#">מכירת רכב</a>
+                            <a class="dropdown-item" target="_self" href="#">קניית רכב</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                השכרה  <i class="fa fa-search fa-1x"></i>
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" target="_self" href="#">הוספת רכב להשכרה</a>
+                            <a class="dropdown-item" target="_self" href="#">חיפוש רכב להשכרה</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" target="_self" href="/home">דף הבית <span class="sr-only">(current)</span><i class="fa fa-home fa-1x"></i></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                חשבון שלי
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" target="_self" href="#">הזמנות שלי</a>
+                            <a class="dropdown-item" target="_self" href="#">דף בקשות</a>
+                            <a class="dropdown-item" target="_self" href="/logout">התנתק <i class="fa fa-sign-out fa-1x" ></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--End Navbar-->
+
+
+<div class="info-container" id="infoC" style="height: 100px;">
+    <p class="car-list-label2" >בחר סוג חיפוש</p>
+    <select class="car-list" onchange="getSelect()" id="cars">
+         <option selected disabled>בחר סוג חיפוש</option>
+         <option value="buy">קניית רכב</option>
+         <option value="Lease">השכרת רכב</option>
+     </select>
+
+            <div class="inner-div" id="inner">
+                <div class="row">
+                    <div class="col-md">
+                        <p class="car-list-label2" > - מחיר החל מ</p>
+                        <input type="text"  name="currency-field" id="fromPrice" value="" data-type="currency" placeholder="₪">
+            
+                        <p class="car-list-label2" > - מחיר עד</p>
+                        <input type="text" name="currency-field" id="toPrice"  value="" data-type="currency" placeholder="₪">      
+                
+                    </div>
+                    <div class="col-md">
+                        <p class="car-list-label2" > - תאריך החל מ</p>
+                        <input type="date" name="currency-field" id="fromDate" value=""  >
+            
+                        <p class="car-list-label2" > - תאריך עד</p>
+                        <input type="date" name="currency-field" id="toDate"  value="" >
+        
+                    </div>
+                    <div class="col-md">
+                        <button onclick="show()" class="inner-div-button" >Show</button>
+                    </div>
+                </div>
+            </div>
+
+ </div>
+
+    
+    <div class="my-container">
+
+        <!-- Div for append (SALE CARS) -->
+    <div id="sale_cars_div">       
+
+    </div>
+<!-- -->
+<!-- only one of this two divs will be appended.-->
+<!-- Div for append (LEASE CARS) -->
+    <div id="lease_cars_div">       
+
+    </div>
+<!-- -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--END OF EVERY PAGE-->
+    <div style="background: #08526d;; width: 100%; height: 600px; ">
+        <div class="container ">
+            <br><br><br>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large; font-weight: bold; color: white; float: right; ">
+                אל תפספס עדכונים ומבצעים
+            </h3><br><br>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; color: cornsilk; float: right; ">
+                השתתף במייל וקבל כל המבצעים וההנחות העדכניים בזמן
+            </h3>
+            <div class="input-group mb-3 " style="float: left; width: 72%; ">
+                <div class="input-group-prepend ">
+                    <button class="btn btn-outline-primary " style="color: tomato; border-color: lightgray; " onclick="subscribe() " type="button ">Subscribe</button>
+                </div>
+                <input type="text " class="form-control " id="label " placeholder="Email Address ">
+            </div><br><br>
+            <p id="welcome " style="color: goldenrod;border-color: lightgray;border:1px; "></p>
+
+            <script>
+                function subscribe() {
+                    var txt = 'label';
+                    confirm('message with the Email: ' + document.getElementById(txt).value + ' was sent.');
+                    document.getElementById("label ").value = " ";
+                }
+            </script>
+            <hr style="border-color: lightgray; ">
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large; text-align: right; font-weight: bold; color: white; float: right; ">
+                ?צריכים עזרה
+            </h3><br><br>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; color: cornsilk; float: right; ">
+                0547859418 - בכריה נור
+            </h3><br><br>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; color: cornsilk; float: right; ">
+                סאהר - 0523501045
+            </h3><br><br>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; color: cornsilk; float: right; ">
+                מחמד שחאדה - 0524837958
+            </h3><br><br>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; color: cornsilk; float: right; ">
+                0547859418 - חליל
+            </h3><br><br>
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: medium; color: cornsilk; float: right; ">
+                אחמד חגאגרה - 0523501045
+            </h3><br><br>
+
+
+
+            <hr style="border-color: lightgray; ">
+            <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: small; color: cornsilk; float: left; ">
+                כל הזכויות שמורות.© 2020
+            </h3><br><br>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+/************************************************************************************************************/
+function show() {
+	$('#lease_cars_div').append($('<div class="cars_container">\n'
+    + '                <img class="cars_image" src="public/images/test1.png" height="150" width="100%"/>\n'
+    + '                <p class="cars_price" >189₪ per day </p>\n'
+    + '                <p class="cars_name" >Hyundai IONIQ Electric</p>\n'
+    + '                <p class="cars_desc" >5 Adults, 3 bags</p>\n'
+    + '                <p class="available" >Available!</p>\n'
+    + '                <button class="cars_order" >Show deal</button>\n'
+    + '            </div>'
+    + '                <div class="cars_container">\n'
+    + '                <img class="cars_image" src="public/images/test1.png" height="150" width="100%"/>\n'
+    + '                <p class="cars_price" >189₪ per day </p>\n'
+    + '                <p class="cars_name" >Hyundai IONIQ Electric</p>\n'
+    + '                <p class="cars_desc" >5 Adults, 3 bags</p>\n'
+    + '                <p class="available" >Available!</p>\n'
+    + '                <button class="cars_order" >Show deal</button>\n'
+    + '            </div>'
+    + '                 <div class="cars_container">\n'
+    + '                <img class="cars_image" src="public/images/test1.png" height="150" width="100%"/>\n'
+    + '                <p class="cars_price" >189₪ per day </p>\n'
+    + '                <p class="cars_name" >Hyundai IONIQ Electric</p>\n'
+    + '                <p class="cars_desc" >5 Adults, 3 bags</p>\n'
+    + '                <p class="available" >Available!</p>\n'
+    + '                <button class="cars_order" >Show deal</button>\n'
+    + '            </div>'
+    + '                 <div class="cars_container">\n'
+    + '                <img class="cars_image" src="public/images/test1.png" height="150" width="100%"/>\n'
+    + '                <p class="cars_price" >189₪ per day </p>\n'
+    + '                <p class="cars_name" >Hyundai IONIQ Electric</p>\n'
+    + '                <p class="cars_desc" >5 Adults, 3 bags</p>\n'
+    + '                <p class="available" >Available!</p>\n'
+    + '                <button class="cars_order" >Show deal</button>\n'
+    + '            </div>'
+    + '                 <div class="cars_container">\n'
+    + '                <img class="cars_image" src="public/images/test1.png" height="150" width="100%"/>\n'
+    + '                <p class="cars_price" >189₪ per day </p>\n'
+    + '                <p class="cars_name" >Hyundai IONIQ Electric</p>\n'
+    + '                <p class="cars_desc" >5 Adults, 3 bags</p>\n'
+    + '                <p class="available" >Available!</p>\n'
+    + '                <button class="cars_order" >Show deal</button>\n'
+    + '            </div>'));
+}
+function getSelect() {
+	document.getElementById('infoC').style.height = '400px';
+	document.getElementById('infoC').style.background = '#0a5b79';
+
+	document.getElementById('inner').style.display = 'contents';
+}
+
+/************************************************************************************************************/
+/*START  car lease profile  */
+.my-container{
+    margin-left: 50px;
+}
+@media(max-width:500px){
+    .my-container{
+        margin-left: 20px;
+    }
+}
+.cars_container{
+    padding-top: 10px;
+    height: 190px;
+    width: 440px;
+    display: inline-block;
+    margin-right: 45px;
+    margin-bottom: 20px;
+    background: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    position:relative;
+    border: 0.1px solid rgb(114, 167, 164);
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px grey;
+}
+.cars_image{
+    float: right;
+    width: 50%;
+    height: 115px;
+}
+.cars_name{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    color: black;
+
+}
+.cars_desc{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0px;
+    font-size: 14px;
+    color:gray;
+
+}
+.cars_price{
+    font-family: sans-serif;
+    font-size: 16px;
+    color:black;
+}
+.cars_order{/*red button*/
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: red;
+    color: white;
+    height: 30px;
+    width: 140px;
+    margin-top: 20px;
+    margin-left: 120px;
+    border-radius: 10px 10px 10px 10px;
+}
+.available{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: inherit;
+    font-size: 12px;
+    color: forestgreen;
+    padding: 0px;
+}
+
+/*END  car lease profile  */
+
+
+
+.info-container{
+    padding-top: 10px;
+    background-color: #08526d;
+    margin-left: 35%;
+    width: 500px;
+    margin-bottom: 8%;
+    margin-top: 2%;
+    text-align: center;
+    position: relative;
+    box-shadow: 5px 5px 10px grey;
+    border-radius: 20px;
+    animation-name: start;
+    animation-duration: 2s;
+}
+
+.car-list-label2{
+    font-size: small;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+.car-list{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+input {
+    border: 0.1px solid rgb(155, 155, 155);
+    border-radius: 5px;
+    color: #333;
+    font-size: 10px;
+    padding: .5rem 1rem;
+    width: 160px;
+  }
+.inner-div{
+  display: none;
+}
+.inner-div-button{/*red button*/
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: red;
+    color: white;
+    height: 30px;
+    margin-top: 90px;
+    width: 140px;
+    border-radius: 10px 10px 10px 10px;
+}
+  @media(max-width: 500px){
+    .info-container{       
+        width: 100%;     
+        margin-bottom: 320px;
+        margin-left: 0%;   
+        border-radius: 4px;
+
+    }
+}
+  @media(max-width: 500px){
+    input{       
+        width: 240px;   
+    }
+}
+@media(max-width: 500px){
+    .cars_container {       
+        padding-right:40px ;
+        position: relative;;
+    }
+}
+
+@media(max-width: 500px){
+    .inner-div-button{
+        margin-top: 20px;
+    }
+}
+
+@keyframes start {
+    0%   {background-color: #053141; left:0px;}
+    50%  {background-color: rgb(8, 72, 102); height: 200px;}
+    100% {background-color: #0a5b79; left:0px;}
+}
+
+
+
+
+
+
+/*Start slider*/
+.slider{
+    background-color: #DDD;
+  }
+  
+  .slider .carousel-inner{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+
+  @media(max-width: 768px){
+    .slider .carousel-inner{      
+        justify-content: left;
+    }
+  }
+  
+  .slider .carousel-inner h1{
+    position: absolute;
+    color: #fff;
+    z-index: 3;
+    font-size: 70px;
+    max-width: 800px;
+    text-align: right;
+    right: 100px;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 992px){
+    .slider .carousel-inner h1{       
+        font-size: 60px;
+        max-width: 700px;     
+        right: right ;
+        text-align: right;
+
+    }
+  }
+
+  @media(max-width: 780px){
+    .slider .carousel-inner h1{       
+        font-size: 40px;
+        max-width: 90%;     
+        right: auto;      
+        text-align: center;
+    }
+}
+@media(max-width: 505px){
+    .slider .carousel-inner h1{       
+        font-size: 25px;
+        max-width: 90%;     
+        right: auto;      
+        text-align: center;
+        line-height: 2;
+    }
+}
+@media(max-width: 330px){
+    .slider .carousel-inner h1{       
+        font-size: 20px;
+        max-width: 90%;     
+        right: auto;      
+        text-align: center;
+        line-height: 2;
+    }
+}
+  
+  .slider .carousel-inner h1 span{
+    border: 4px solid #ec1c23;
+    display: inline-block;
+    padding: 2px 10px;
+  }
+  
+  .slider .carousel-inner .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    z-index: 2;
+  }
+  
+  .slider .carousel-item{
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
+  
+  .slider .carousel-one{
+    background-image: url('/public/images/1.png');
+  }
+  .slider .carousel-two{
+    background-image: url('/public/images/2.png');
+  }
+  .slider .carousel-three{
+    background-image: url('/public/images/3.png');
+  }
+  
+  .slider .carousel-indicators li{
+    height: 8px;
+    cursor: pointer;
+  }
+  /*End slider*/
+
+  /*Start Features*/
+  .features{
+      padding: 50px 0;
+  }
+
+  .features i{
+      background-color: #ec1c23;
+      color: #fff;      
+      padding: 12px;
+      margin-bottom: 10px;
+  }
+
+
+  .features h3{
+   
+    font-size: 22px;
+  }
+
+  .features p{
+      color: #989898;
+      margin-bottom: 40px;
+  }
+
+  /*End Features*/
+
+  /*Start Choose Us*/
+
+  .choose-us{   
+    background-color: #FFF;    
+  }
+
+  
+  .choose-us img{
+      max-width: 100%;
+     
+  }
+
+  .choose-us .col-md-6{
+      padding: 0; 
+         
+  }
+  .choose-us .col-md-6:last-child{
+      background-color: #08526d;
+      color: #FFF;
+      padding-top: 40px;
+  }
+
+
+  
+
+  .choose-us h2{
+      font-size: 50px;
+      font-weight: bold;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      margin: 30px;
+  }
+  @media(max-width: 768px){
+    .choose-us h2{
+        margin: 10px;
+    }
+}
+
+  .choose-us p{
+    line-height: 2;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 80%;
+    margin: 0 auto 15px;
+    color: #FFF;
+    margin-bottom: 30px;
+  }
+
+  .choose-us .button{
+    background-color: #ec1c23;
+    color: #FFF;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid #ec1c23;
+    
+
+  }
+
+  @media screen and (max-width: 992px){
+
+    .choose-us .button{
+        padding: 4px;
+        margin-bottom: auto;
+    }
+
+    .choose-us p{
+        line-height: 1.5;
+    }
+  }
+
+  
+  /*End Choose Us*/
+
+  /*Start Contact Us*/
+
+  .contact-us{
+      padding: 45px 0;
+      background-color: #ec1c23;
+      color: #FFF;
+      border: 5px solid #FFF;
+      
+
+  }
+
+  .contact-us p{
+    margin: 0;
+    color: #FFF;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .contact-us a{
+    color: #FFF;
+    border: 2px solid #FFF;
+    padding: 6px 15px 8px;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+  /*End Contact Us*/

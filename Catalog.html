@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CarFx Catalog</title>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+    <script src="CatalogScript.js"></script>
+  
+</head>
+<body id="subBody" >
+    <br>
+    <div id="CatContent">
+        <div style="display:inline;width:50%;float:left;position: relative;top: 50px;">
+            <h2 class="catalogh2" style="width:80%;float:right;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large; font-weight: bold;text-align:right;"> או אתה יכול לחפש לפי שם מוצר</h2><br>
+            <br><input type="text" class="select-catalog" id="search_input" placeholder="search keyword" style="width:80%;float:right;"><br><br>
+            <button type="button" class="btn btn-primary" id="search_button" onclick="searchByVal()" style="float: right; background-color: goldenrod; border: none;width:80%;">search</button>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div style="display:inline;width:50%;float:right;">
+            <h1 class="catalogh1" style="text-align:right;float: right;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: x-large;width:80%; font-weight: bold;margin-right: 15px;">קטלוג חלקי הרכב</h1><br><br>
+            <h2 class="catalogh2" style=" width: 80%; float: right; text-align: right; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large; font-weight: bold;margin-right: 15px;">
+                בחר רכב (שנת יצור | חברה | מודיל) כדי לחפש חלקים מתאימים
+            </h2><br>
+            <br>
+            <select class="select-catalog" id="car_year_selector" style=" width:80%;float: right;margin-right: 15px;"></select><br><br>
+            <select class="select-catalog" id="car_make_selector" style="width:80%;float: right;margin-right: 15px;"></select><br><br>
+            <select class="select-catalog" id="car_model_selector" style="width:80%;float: right;margin-right: 15px;"></select><br><br>
+
+            <button type="button" class="btn btn-primary" id="select_button" onclick="searchBySelectedCar()" style=" width:80%;float: right;margin-right: 15px;
+        background-color: goldenrod;
+        border: none;
+">
+                select
+            </button><br><br>
+        </div>
+        <br>
+
+
+
+        <h1 class="catalogh1" style="position: relative;
+        top: 80px;
+        float: left;border-bottom:2px solid goldenrod;
+        margin-left: 550px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: x-large;
+        font-weight: bold;
+">
+            חלקים מתאימים לרכב
+        </h1><hr style="border-color: rgb(252, 222, 146);">
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <div class="items_div" id="itemsdiv" style="position: relative;top:200px;float: left;">
+            
+        </div>
+        
+         <div class="modal" id="AddToCartModal">
+             <div class="modal-dialog" id="AddToCartModalContent">
+                 <div class="modal-content">
+
+                     <div class="modal-body">
+                         <button type="button" class="close" data-dismiss="modal">&times;</button>
+                         <br>
+                         <h3 class="modal_headers">Select quantity</h3>
+                         <br>
+                         <select class="form-control user_info_inputs" id="qtySelect">
+
+                         </select>
+                         <br>
+                         <div style="margin: auto; width: 120px">
+                             <button type="button" class="btn btn-primary" id="addToCartBtn" onclick="addToCart()">add to cart</button>
+                         </div>
+                     </div>
+
+
+                 </div>
+             </div>
+         </div>
+         <div class="toast" data-delay="1500" id="msgToast">
+             <div class="toast-body" id="msgContent">
+                 Some text inside the toast body
+             </div>
+         </div>
+
+         <div class="modal" id="partFitsCarsModal">
+             <div class="modal-dialog" id="partFitsCarsModalContent">
+                 <div class="modal-content">
+
+                     <div class="modal-body">
+                         <button type="button" class="close" data-dismiss="modal">&times;</button>
+                         <h3 class="modal_headers">this part fits</h3>
+                         <br>
+
+                         <div  style="overflow:auto; height:200px; ">
+                             <table class="table">
+                                 <thead>
+                                 <tr>
+                                     <th>year</th>
+                                     <th>make</th>
+                                     <th>model</th>
+
+                                 </tr>
+                                 </thead>
+                                 <tbody id="fitCarsBody">
+
+
+                                 </tbody>
+                             </table>
+                         </div>
+                     </div>
+
+
+                 </div>
+             </div>
+         </div>
+    
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDzP5e99r3HlK8fi6C2VXUWRHdL_TQ1p-M",
+                authDomain: "car-parts-project.firebaseapp.com",
+                databaseURL: "https://car-parts-project.firebaseio.com",
+                projectId: "car-parts-project",
+                storageBucket: "car-parts-project.appspot.com",
+                messagingSenderId: "563519871009",
+                appId: "1:563519871009:web:3ae23a07c24708cf55ab60",
+                measurementId: "G-2C39X9F1RR"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+        <script src="Jscripts.js"></script>
+</body>
+</html>

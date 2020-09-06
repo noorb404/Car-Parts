@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="font/flaticon.css"> 
+
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CarFx</title>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+
+</head>
+<body id="subBody">
+<div id="subContent">
+    <h1 style="text-align: center; color: goldenrod; margin-top: 10px; margin-bottom: 20px;">Shop cart</h1>
+    <div id="" style="overflow:auto; height:300px;">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>part name</th>
+                <th>part price</th>
+                <th>quantity</th>
+                <th>total price</th>
+            </tr>
+            </thead>
+            <tbody id="shopCartTableBody">
+
+
+            </tbody>
+        </table>
+    </div>
+    <div id="paymentDiv">
+        <hr id="paySplit">
+        <h4 id="totalPrice"></h4><br>
+        <div id="totalll"  style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;margin-left:30px; font-size: large; color: rgb(83, 83, 83);"></div>
+        <p style="text-align: center;margin-left:30px;color: rgb(83, 83, 83);" >Free Shipping</p>
+        <button type="button" class="btn btn-primary" style="text-align: center; border:0 ;margin-left:715px; width: 113px;  background: goldenrod;" id="payBtn" >Buy Now</button>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDzP5e99r3HlK8fi6C2VXUWRHdL_TQ1p-M",
+        authDomain: "car-parts-project.firebaseapp.com",
+        databaseURL: "https://car-parts-project.firebaseio.com",
+        projectId: "car-parts-project",
+        storageBucket: "car-parts-project.appspot.com",
+        messagingSenderId: "563519871009",
+        appId: "1:563519871009:web:3ae23a07c24708cf55ab60",
+        measurementId: "G-2C39X9F1RR"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+<script src="Jscripts.js"></script>
+<script src="shopCart.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="font/flaticon.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CarFx</title>
+    <script type="text/javascript" src="http://www.carqueryapi.com/js/carquery.0.3.4.js"></script>
+    <script src="Jscripts.js"></script>
+</head>
+<body >
+
+
+    <div class="content">
+        <br><br><br>
+        <h2>Add part</h2>
+        <input type="text" class="form-control parts_inputs" id="partname" placeholder="part name"><br>
+        <select class="form-control parts_inputs" id="cat">
+            <option>filters</option>
+            <option>electric</option>
+            <option>engine cooling</option>
+            <option>engine</option>
+            <option>suspension</option>
+            <option>body</option>
+            <option>axles</option>
+            <option>cooling</option>
+            <option>lights</option>
+            <option>sounds</option>
+        </select><br>
+        <textarea class="form-control parts_inputs" rows="3" placeholder="desc" id="desc"></textarea><br>
+        <p>select car that fit this part</p>
+        <select class="form-control selector" id="car_year_selector" >
+
+        </select>
+        <select class="form-control selector" id="car_make_selector" >
+
+        </select>
+        <select class="form-control selector" id="car_model_selector" >
+
+        </select>
+            
+        
+        <button type="button" class="btn btn-primary selector " style="width: 100px" onclick="addFitCar()">add</button>
+        <br><br>
+        <div style="overflow:auto; height:200px; width: 50%">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>year</th>
+                        <th>make</th>
+                        <th>model</th>
+
+                    </tr>
+                </thead>
+                <tbody id="fitCarsBody">
+                </tbody>
+            </table>
+        </div><br>
+        <input type="text" class="form-control parts_inputs" placeholder="price" id="price"><br>
+        <input type="text" class="form-control parts_inputs" placeholder="pic url" id="picurl"><br>
+        <button type="button" class="btn btn-primary " style="width: 100px" onclick="addPart()">add part</button>
+        <h2>Parts</h2>
+        <div style="overflow:auto; height:500px;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>pic</th>
+                        <th>name</th>
+                        <th>category</th>
+                        <th>desc</th>
+                        <th>price</th>
+
+                    </tr>
+                </thead>
+                <tbody id="partsTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDzP5e99r3HlK8fi6C2VXUWRHdL_TQ1p-M",
+    authDomain: "car-parts-project.firebaseapp.com",
+    databaseURL: "https://car-parts-project.firebaseio.com",
+    projectId: "car-parts-project",
+    storageBucket: "car-parts-project.appspot.com",
+    messagingSenderId: "563519871009",
+    appId: "1:563519871009:web:3ae23a07c24708cf55ab60",
+    measurementId: "G-2C39X9F1RR"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="Jscripts.js"></script>s
+</body>
+</html>
